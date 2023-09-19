@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+message Block {
+  Header Header = 1;
+  repeated Transaction Transactions = 2;
+}
+
+message Header {
+  string Version = 1;
+  BlockState State = 2;
+  int64 Height = 3;
+  bytes Hash = 4;
+  bytes PreviousHash = 5;
+  int64 Timestamp = 6;
+}
+
+message Transaction {
+  string Version = 1;
+  TransactionState State = 2;
+  bytes Hash = 3;
+  int64 Nonce = 4;
+  bytes FromAddress = 5;
+  bytes FromPubKey = 6;
+  bytes ToAddress = 7;
+  float Amount = 8;
+  int64 Timestamp = 9;
+}
+
+enum TransactionState {
+  Pending = 0;
+  Confirmed = 1;
+  Failed = 2;
+  Reverted = 3;
+}
+
+enum BlockState {
+  Finalized = 0;
+  PendingFinalization = 1;
+  Proposed = 2;
+}
