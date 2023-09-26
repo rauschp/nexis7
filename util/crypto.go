@@ -8,6 +8,8 @@ import (
 	"fmt"
 )
 
+const PrivateKeyPath string = "keys/nexis.key"
+
 type PrivateKey struct {
 	Key ed25519.PrivateKey
 }

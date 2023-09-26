@@ -37,7 +37,12 @@ func processCommand() error {
 
 		return nil
 	case "init":
-		break
+		err := commands.ProcessInit()
+		if err != nil {
+			return err
+		}
+
+		return nil
 	case "validate":
 		err := commands.ProcessValidate()
 		if err != nil {
@@ -46,7 +51,12 @@ func processCommand() error {
 
 		return nil
 	case "run":
-		break
+		err := commands.ProcessRun()
+		if err != nil {
+			return err
+		}
+
+		return nil
 	}
 
 	return fmt.Errorf("unknown command %s", cmd)

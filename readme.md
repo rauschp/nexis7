@@ -8,4 +8,4 @@ Goals for this project:
 - Planned simple NFT contract support
 - Planned simple currency contract support
 
-[LinkedIn](https://www.linkedin.com/in/peter-rausch-48401a67/) | [Website](https://peterraus.ch)
+[LinkedIn](https://www.linkedin.com/in/peter-rausch7/) | [Website](https://peterraus.ch)

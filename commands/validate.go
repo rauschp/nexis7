@@ -7,7 +7,7 @@ import (
 )
 
 func ProcessValidate() error {
-	f, err := os.ReadFile("keys/nexis.key")
+	f, err := os.ReadFile(util.PrivateKeyPath)
 	if err != nil {
 		return err
 	}
