@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/cockroachdb/pebble"
+	"github.com/rauschp/nexis7/types"
+	"github.com/rauschp/nexis7/util"
 	"github.com/rs/zerolog/log"
-	"nexis7/types"
-	"nexis7/util"
 )
 
 type PersistentWalletStore struct {
@@ -34,6 +34,21 @@ func (w *PersistentWalletStore) GetByPublicKey(pk *util.PublicKey) (*types.Walle
 	addr := pk.GetAddress()
 
 	return w.GetByAddress(addr)
+}
+
+func (w *PersistentWalletStore) SaveNewWallet(wallet types.Wallet) error {
+	record := WalletRecord{
+		Balance:   wallet.Balance,
+		PublicKey: wallet.PublicKey,
+		Nonce:     wallet.Nonce,
+	}
+
+	if err := w.saveWalletRecord(wallet.Address, record); err != nil {
+		log.Error().Err(err).Msg("Error saving wallet")
+		return err
+	}
+
+	return nil
 }
 
 func (w *PersistentWalletStore) GetByAddress(address util.Address) (*types.Wallet, error) {

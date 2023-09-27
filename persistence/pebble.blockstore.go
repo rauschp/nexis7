@@ -3,8 +3,8 @@ package persistence
 import (
 	"encoding/json"
 	"github.com/cockroachdb/pebble"
+	pb "github.com/rauschp/nexis7/proto"
 	"github.com/rs/zerolog/log"
-	pb "nexis7/proto"
 )
 
 type PersistentBlockstore struct {

@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/rauschp/nexis7/commands"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"nexis7/commands"
 	"os"
 )
 
@@ -51,7 +51,7 @@ func processCommand() error {
 
 		return nil
 	case "run":
-		err := commands.ProcessRun()
+		err := commands.ProcessRunCommand()
 		if err != nil {
 			return err
 		}

@@ -1,13 +1,13 @@
 package commands
 
 import (
+	"github.com/rauschp/nexis7/util"
 	"github.com/rs/zerolog/log"
-	"nexis7/util"
 	"os"
 )
 
 func ProcessValidate() error {
-	f, err := os.ReadFile(util.PrivateKeyPath)
+	f, err := os.ReadFile(util.DefaultPrivateKeyPath)
 	if err != nil {
 		return err
 	}

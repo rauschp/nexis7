@@ -1,4 +1,4 @@
-module nexis7
+module github.com/rauschp/nexis7
 
 go 1.20
 

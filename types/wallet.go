@@ -1,7 +1,7 @@
 package types
 
 import (
-	"nexis7/util"
+	"github.com/rauschp/nexis7/util"
 )
 
 type Wallet struct {

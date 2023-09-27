@@ -1,9 +1,9 @@
 package persistence
 
 import (
-	pb "nexis7/proto"
-	"nexis7/types"
-	"nexis7/util"
+	pb "github.com/rauschp/nexis7/proto"
+	"github.com/rauschp/nexis7/types"
+	"github.com/rauschp/nexis7/util"
 )
 
 type BlockStore interface {
@@ -15,6 +15,7 @@ type BlockStore interface {
 type WalletStore interface {
 	GetByPublicKey(pc *util.PublicKey) (*types.Wallet, error)
 	GetByAddress(address util.Address) (*types.Wallet, error)
+	SaveNewWallet(wallet types.Wallet) error
 	DepositCurrency(address util.Address, amount float32) error
 	WithdrawCurrency(address util.Address, amount float32) error
 }
