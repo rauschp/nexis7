@@ -31,7 +31,7 @@ func CreateGenesisBlock() (*pb.Block, *PublicKey) {
 		Header: &pb.Header{
 			Version:   "0.1.0",
 			State:     pb.BlockState_Finalized,
-			Height:    0,
+			Height:    1,
 			Timestamp: time.Now().Unix(),
 		},
 		Transactions: []*pb.Transaction{

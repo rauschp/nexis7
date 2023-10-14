@@ -9,6 +9,7 @@ import (
 type BlockStore interface {
 	Height() int64
 	Set(block *pb.Block) error
+	SetHeight(height int64) error
 	Get(hash string) (*pb.Block, error)
 }
 

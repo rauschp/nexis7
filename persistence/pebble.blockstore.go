@@ -39,6 +39,15 @@ func (m *PersistentBlockstore) Height() int64 {
 	return height
 }
 
+func (m *PersistentBlockstore) SetHeight(height int64) error {
+	if err := m.DB.Set([]byte("Height"), []byte{byte(height)}, pebble.Sync); err != nil {
+		log.Error().Err(err).Msg("Error persisting height")
+		return err
+	}
+
+	return nil
+}
+
 func (m *PersistentBlockstore) Get(hash string) (*pb.Block, error) {
 	value, closer, err := m.DB.Get([]byte(hash))
 	if err != nil {

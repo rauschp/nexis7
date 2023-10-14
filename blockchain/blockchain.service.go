@@ -41,9 +41,13 @@ func (b *BlockchainService) startPantheonNode() {
 		if err != nil {
 			panic(err)
 		}
-	} else {
-		// The chain has already been established, start the node
+
+		err = b.Node.Datastore.BlockStore.SetHeight(1)
+		if err != nil {
+			panic(err)
+		}
 	}
+
 }
 
 func (b *BlockchainService) startReaderNode() {
